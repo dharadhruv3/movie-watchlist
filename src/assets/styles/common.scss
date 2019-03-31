@@ -1,0 +1,119 @@
+@import "./reset";
+@import "./variable";
+
+body {
+  font-family: $font-family-base;
+  color: $text-color;
+  font-size: $font-size-base;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
+  background-color: $dark-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+h6 {
+  font-size: $h6-font-size;
+}
+
+img{
+  max-width: 100%;
+}
+
+strong{
+  font-weight: bold;
+}
+
+button:focus, input:focus{
+  outline: 0;
+}
+
+.container{
+  padding: 3em 0;
+  max-width: 900px;
+  margin: 0 auto;}
+
+.flex-grow-2{
+  flex-grow: 2;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.bg-primary{
+  background-color: $primary-color !important;
+}
+
+.bg-secondary{
+  background-color: $secondary-color !important;
+}
+
+.text-primary{
+  color: $primary-color !important;
+}
+
+.text-secondary{
+  color: $secondary-color !important;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.d-inline-flex{
+  display: inline-flex;
+}
+
+.f-left{
+  float: left;
+}
+
+.mr-2{
+  margin-right: 2em;
+}
+
+.mt-3{
+  margin-top: 3em;
+}
+
+.mb-1{
+  margin-bottom: 1em;
+}
+
+.mb-3{
+  margin-bottom: 3em;
+}
+
+.bg-transparent{
+  background: transparent;
+}
+
+.border-0{
+  border: 0;
+}

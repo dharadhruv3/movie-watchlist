@@ -1,5 +1,6 @@
 import React from 'react';
 import { MdStar, MdStarBorder } from 'react-icons/md';
+import Grid from '@material-ui/core/Grid';
 
 export default class MovieList extends React.Component {
     image() {
@@ -17,21 +18,25 @@ export default class MovieList extends React.Component {
         const {onAddToWatchList, onRemoveFromWatchList, bookmarked} = this.props;
 
         return (
-            <div className="card">
-                <div className="view overlay hm-white-slight">
-                    { this.image() }
-                </div>
+            <Grid item xs={4}>
+                <div className="movie">
+                    <div className="view overlay hm-white-slight">
+                        { this.image() }
+                    </div>
 
-                <div className="movie-block">
-                    <h4 className="movie-title">{ Title }</h4>
-                    <p className="movie-text">Released: { Year }, Type: { Type }</p>
-                    {bookmarked ?
-                        <button onClick={() => onRemoveFromWatchList(this.props.movie)}>
-                            <MdStar size={25} /></button> :
-                        <button onClick={() => onAddToWatchList(this.props.movie)}>
-                            <MdStarBorder size={25} /></button>}
+                    <div className="movie-block">
+                        <h5 className="movie-title">{ Title }</h5>
+                        <p className="movie-text">Released: { Year }, Type: { Type }</p>
+                        {bookmarked ?
+                            <button className="bg-transparent border-0 star-icon"
+                                    onClick={() => onRemoveFromWatchList(this.props.movie)}>
+                                <MdStar size={25} /></button> :
+                            <button className="bg-transparent border-0 star-icon"
+                                    onClick={() => onAddToWatchList(this.props.movie)}>
+                                <MdStarBorder size={25} /></button>}
+                    </div>
                 </div>
-            </div>
+            </Grid>
         );
     }
 }

@@ -1,8 +1,7 @@
 import React from "react";
 import Header from 'components/Header';
 import MoviesSearch from 'components/MoviesSearch';
-import {connect} from "react-redux";
-import {onSearchMovie} from "./actions/Movies";
+import 'assets/styles/common.scss';
 
 class App extends React.Component {
 
@@ -12,23 +11,12 @@ class App extends React.Component {
 
     render(){
         return (
-            <div>
+            <div className="container">
                 <Header />
-                <MoviesSearch onSearchMovie={this.onSearchMovie.bind(this)} />
-                {/*<WatchList />*/}
+                <MoviesSearch />
             </div>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        searching: state.movies.searching,
-        searchResults: state.movies.searchResults,
-    };
-};
-
-export default connect(mapStateToProps, {
-    onSearchMovie
-})(App);
-
+export default App;

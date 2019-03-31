@@ -4,6 +4,8 @@ import {onSearchMovie, onAddToWatchList, onRemoveFromWatchList} from 'actions/Mo
 import Autosuggest from 'react-autosuggest';
 import Paper from '@material-ui/core/Paper';
 import MovieList from "components/MovieList";
+import "assets/styles/movies.scss";
+import Grid from '@material-ui/core/Grid';
 
 let displayMovie = '';
 
@@ -81,16 +83,21 @@ class MoviesSearch extends React.Component {
         return (
             <div className="container">
 
-                <h3>Search</h3>
-                <Autosuggest
-                    suggestions={suggestions}
-                    onSuggestionsFetchRequested={this.onsuggestionsFetchRequested}
-                    onSuggestionsClearRequested={this.onsuggestionsClearRequested}
-                    shouldRenderSuggestions={shouldRenderSuggestions}
-                    getSuggestionValue={getSuggestionMoviename}
-                    renderSuggestion={renderSuggestion}
-                    inputProps={movieNameInputProps}
-                />
+                <div className="search-area d-inline-flex">
+                    <label className="f-left mr-2">Search</label>
+                    <Autosuggest
+                        suggestions={suggestions}
+                        onSuggestionsFetchRequested={this.onsuggestionsFetchRequested}
+                        onSuggestionsClearRequested={this.onsuggestionsClearRequested}
+                        shouldRenderSuggestions={shouldRenderSuggestions}
+                        getSuggestionValue={getSuggestionMoviename}
+                        renderSuggestion={renderSuggestion}
+                        inputProps={movieNameInputProps}
+                    />
+                </div>
+
+                <hr className="mt-3 mb-3" />
+
 
                 {displayMovie && <MovieList movie={displayMovie}
                                             bookmarked={false}
@@ -100,12 +107,11 @@ class MoviesSearch extends React.Component {
                 {console.log('watchList', watchList)}
 
                 <h3>Watch List</h3>
-                {watchList ?
-                watchList.map((movie) => {
+                <Grid container spacing={24}>{watchList ? watchList.map((movie) => {
                     return <MovieList key={movie.imdbID} movie={movie}
-                                      bookmarked={true}
-                                      onRemoveFromWatchList={this.onRemoveFromWatchList.bind(this)}/>
-                }): 'There are not any movies in watch list'}
+                                   bookmarked={true}
+                                   onRemoveFromWatchList={this.onRemoveFromWatchList.bind(this)}/>
+                }) : 'There are not any movies in watch list'}</Grid>
             </div>
         );
     }

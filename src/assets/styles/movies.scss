@@ -1,0 +1,21 @@
+@import "variable";
+
+.react-autosuggest__input{
+  padding: 12px;
+  border: 0;
+  border-radius: 5px;
+  min-width: 300px;
+}
+
+.react-autosuggest__suggestion{
+  color: $dark-color;
+  div{
+    padding: 5px;
+  }
+}
+
+.star-icon{
+  svg{
+    fill: $text-color
+  }
+}
